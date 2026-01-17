@@ -87,6 +87,29 @@ pnpm build
 pnpm serve
 ```
 
+## Docker
+
+### Build and Run Locally
+
+```bash
+# Build the image
+docker build -t gemini-watermark-remover .
+
+# Run the container
+docker run -d -p 8080:80 --name gwr gemini-watermark-remover
+```
+
+Access the application at `http://localhost:8080`.
+
+### Using Alibaba Cloud ACR
+
+If you use the provided GitHub Action, you can pull the image from ACR:
+
+```bash
+docker pull registry.cn-shanghai.aliyuncs.com/linran-pub/gemini-watermark-remover:latest
+docker run -d -p 8080:80 registry.cn-shanghai.aliyuncs.com/linran-pub/gemini-watermark-remover:latest
+```
+
 ## How it Works
 
 ### The Gemini Watermarking Process

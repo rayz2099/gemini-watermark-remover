@@ -85,6 +85,29 @@ pnpm build
 pnpm serve
 ```
 
+## Docker 使用
+
+### 本地构建与运行
+
+```bash
+# 构建镜像
+docker build -t gemini-watermark-remover .
+
+# 启动容器
+docker run -d -p 8080:80 --name gwr gemini-watermark-remover
+```
+
+访问地址：`http://localhost:8080`
+
+### 使用阿里云 ACR 镜像
+
+如果你使用了配置好的 GitHub Action，可以直接拉取镜像：
+
+```bash
+docker pull registry.cn-shanghai.aliyuncs.com/linran-pub/gemini-watermark-remover:latest
+docker run -d -p 8080:80 registry.cn-shanghai.aliyuncs.com/linran-pub/gemini-watermark-remover:latest
+```
+
 ## 算法原理
 
 ### Gemini 添加水印的方式
